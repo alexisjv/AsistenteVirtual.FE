@@ -1,5 +1,5 @@
 .card-producto{
-padding: 0.3rem 1rem 1.5rem 1rem;
+padding: 0.3rem 0.5rem 0.8rem 0.5rem;
 }
 
 .boton-producto{
@@ -17,8 +17,7 @@ padding: 0.3rem 1rem 1.5rem 1rem;
 }
 
 .card-img-top{
-    width: 120px;
-    padding-top: 1rem;
+    width: 60px;
 }
 
 .card {
@@ -37,5 +36,57 @@ padding: 0.3rem 1rem 1.5rem 1rem;
     display: block;
     border-radius: 10px;
   }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .card-escenarios{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+
+  }
+
+  .card{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #404040;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    transition: background-color 0.3s;
+  }
   
+  .icon-circle:hover {
+    background-color: #04BFBF !important;
+  }
+  .icon-generar:hover {
+    background-color: #04BFBF !important;
+  }
+
+  .fila{
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 40%;
+
+  }
+
+  .table .fila {
+    border-radius: 10px;
+    margin-bottom: 700px;
+
+  }
+
+  .tabla-redondeada {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+  }
 
