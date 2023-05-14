@@ -32,6 +32,13 @@
                     <td class="align-middle">
                       Asado Envasado al Vacío x 1 Kg.
                     </td>
+                    
+                    <td class="align-middle">
+                      Carnicería El Loco
+                    </td>
+                    <td class="align-middle price">
+                      $1120
+                    </td>
                     <td class="align-middle">
                       <button class="btn boton-producto btn-sm" (click)="openModal()">
                         <i class="fas fa-right-left text-white"></i>
@@ -46,6 +53,12 @@
                       Aperitivo Fernet Branca 750 ml.
                     </td>
                     <td class="align-middle">
+                      Supermercado Luna
+                    </td>
+                    <td class="align-middle price">
+                      $1120
+                    </td>
+                    <td class="align-middle">
                       <button class="btn boton-producto btn-sm" (click)="openModal()">
                         <i class="fas fa-right-left text-white"></i>
                       </button>
@@ -57,6 +70,12 @@
                     </th>
                     <td class="align-middle">
                       Papas Fritas Krachitos 270 Gr.
+                    </td>
+                    <td class="align-middle">
+                      Mayorista Makro
+                    </td>
+                    <td class="align-middle price">
+                      $1120
                     </td>
                     <td class="align-middle">
                       <button class="btn boton-producto btn-sm" (click)="openModal()">
@@ -102,6 +121,7 @@
                         class="icon-circle mr-3"
                         id="botonEconomico"
                         (click)="optimizar('economico')"
+                        mdbTooltip="Más económico" placement="top" tooltipAnimation="true"
                       >
                         <i class="fas fa-dollar-sign"></i>
                       </button>
@@ -109,6 +129,7 @@
                         class="icon-circle mr-3"
                         id="botonCercano"
                         (click)="optimizar('cercano')"
+                        mdbTooltip="Más cercano" placement="top" tooltipAnimation="true"
                       >
                         <i class="fas fa-location-dot"></i>
                       </button>
@@ -116,9 +137,12 @@
                         class="icon-circle mr-3"
                         id="botonRecorrido"
                         (click)="optimizar('recorrido')"
+                        mdbTooltip="Optimiazado" placement="top" tooltipAnimation="true"
                       >
                         <i class="fas fa-layer-group"></i>
                       </button>
+                    <!--  <mdb-range [min]="1" [max]="20" thumb-color="gray"></mdb-range> -->
+
                     </div>
 
                                 <!-- linea de tiempo -->

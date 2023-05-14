@@ -22,8 +22,8 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VariantesModalComponent } from './components/variantes-modal/variantes-modal.component';
-import { PersonalizarListaComponent } from './pages/personalizar-lista/personalizar-lista.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonalizarListaComponent } from './pages/personalizar-lista/personalizar-lista.component';
 
 @NgModule({
   declarations: [

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { VariantesModalComponent } from '../../components/variantes-modal/variantes-modal.component';
 import { EventoProducto } from 'src/app/models/evento-producto';
 import { ListaComprasService } from 'src/app/services/lista-compras.servicio';
 import { Observable } from 'rxjs';
+import { VariantesModalComponent } from 'src/app/components/variantes-modal/variantes-modal.component';
 
 
 @Component({

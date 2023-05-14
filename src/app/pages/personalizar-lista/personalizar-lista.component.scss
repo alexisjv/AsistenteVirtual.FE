@@ -50,6 +50,13 @@ h2 {
   font-size: 12px;
 }
 
+.price {
+  font-size: 25px;
+  font-style: bold;
+    font-family: 'Arial', sans-serif;
+
+}
+
 /* Botones */
 .icono-generar,
 .boton-filtrar {
@@ -93,6 +100,7 @@ h2 {
   color: white;
   font-size: 24px;
   transition: background-color 0.3s;
+  border: none;
 }
 
 .icon-circle:hover {
@@ -185,3 +193,7 @@ time {
 .iconos-optimizacion {
   padding: 20px;
 }
+
+/*range*/
+
+
