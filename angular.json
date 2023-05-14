@@ -31,11 +31,13 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/mdb-ui-kit/css/mdb.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss"
               
             ],
             "scripts": [
-              "node_modules/mdb-ui-kit/js/mdb.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
 
             ]
           },
