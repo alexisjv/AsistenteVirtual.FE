@@ -21,8 +21,9 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PersonalizarListaComponent } from './personalizar-lista/personalizar-lista.component';
-import { VariantesModalComponent } from './variantes-modal/variantes-modal.component';
+import { VariantesModalComponent } from './components/variantes-modal/variantes-modal.component';
+import { PersonalizarListaComponent } from './pages/personalizar-lista/personalizar-lista.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { VariantesModalComponent } from './variantes-modal/variantes-modal.compo
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
