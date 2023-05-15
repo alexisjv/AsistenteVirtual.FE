@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EventoProducto } from '../models/evento-producto';
+import { Producto } from '../models/producto';
+import { Router } from '@angular/router';
+import { Evento } from '../models/evento';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +11,24 @@ import { EventoProducto } from '../models/evento-producto';
 
 export class ListaComprasService {
 
-  apiUrl = 'https://localhost:7201/api/';
+  apiUrl = 'https://localhost:7292/api/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  getListaProductos(): Observable<EventoProducto[]> {
-    return this.http.get<EventoProducto[]>(this.apiUrl + 'comprasComunitarias');
+  getListaEventos(): Observable<Evento[]>{
+    return this.http.get<Evento[]>(this.apiUrl + 'evento/eventos');
+
   }
 
-  getListaProductosPorCriterio(criterio): Observable<EventoProducto[]> {
-    return this.http.get<EventoProducto[]>(this.apiUrl + 'obtenerStock');
+  getListaProductos(): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.apiUrl + 'comprasComunitarias');
+  }
+
+  getListaProductosPorCriterio(criterio): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.apiUrl + 'obtenerStock');
+  }
+
+  getListaProductosPorEventoYLocalidad(idEvento: number, localidad: string): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasPorLocalidad/${idEvento}/${localidad}`);
   }
 }

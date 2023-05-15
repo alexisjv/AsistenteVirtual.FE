@@ -1,0 +1,234 @@
+/* Colores */
+.fondo {
+    background-color: #faebd7;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: #f2b28d;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-formulario{
+    background-color: #04bfbf;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-optimizar {
+    background-color: #04bfbf;
+  }
+  
+  .div-lista {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .titulo{
+    text-align: center;
+    background-color: #f2b28d;
+    padding: 10px;
+  }
+
+  .titulo-formulario{
+    text-align: center;
+    background-color: #04bfbf;
+    padding: 10px;
+  }
+  
+  .linea-titulo {
+    background-color: #ffffff;
+    height: 2px;
+    margin-top: 8px;
+  }
+  
+  /* Tipografía */
+  .titulo-linea-tiempo {
+    font-size: 15px;
+  }
+  
+  h2, label {
+    font-size: 24px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 15px;
+  }
+
+  label{
+    text-transform:initial;
+    font-size: 20px;
+  }
+  
+  .title {
+    font-size: 12px;
+  }
+  
+  .price {
+    font-size: 25px;
+    font-style: bold;
+      font-family: 'Arial', sans-serif;
+  
+  }
+  
+  /* Botones */
+  .icono-generar,
+  .boton-filtrar {
+    background-color: #404040;
+    color: white;
+  }
+  
+  .boton-producto,
+  .boton-producto-add {
+    background-color: #04bfbf;
+    color: white;
+  }
+  
+  .eliminar{
+    background-color: rgba(215, 25, 25, 0.897);
+  }
+  
+  /* Imágenes */
+  .card-img-top {
+    width: 60px;
+  }
+  
+  .image-container {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  /* Iconos */
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #404040;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    transition: background-color 0.3s;
+    border: none;
+  }
+
+  .icon-img {
+    /* Estilos para la imagen del icono */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-circle:hover {
+    background-color: #f2b28d !important;
+  }
+  
+  .icon-generar:hover {
+    background-color: #04bfbf !important;
+  }
+  
+  /* Tabla */
+  .fila {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 40%;
+  }
+  
+  .table .fila {
+    border-radius: 10px;
+    margin-bottom: 700px;
+  }
+  
+  .tabla-redondeada {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  /* Timeline */
+  .c-timeline__item {
+    position: relative;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .c-timeline__content {
+    flex: 1;
+    position: relative;
+    order: 1;
+    padding-left: 1.5rem;
+    padding-bottom: 3rem;
+  }
+  
+  .c-timeline__content:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: lightgrey;
+  }
+  
+  .c-timeline__content:after {
+    content: "";
+    position: absolute;
+    left: calc(0px - 11px);
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    z-index: 1;
+    border: 2px solid lightgrey;
+    border-radius: 50%;
+  }
+  
+  .c-timeline__title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .c-timeline__desc {
+    color: rgba(255, 255, 255, 0.783);
+  }
+  
+  time {
+    text-align: end;
+    flex: 0 0 100px;
+    min-width: 0;
+    overflow-wrap: break-word;
+    padding-bottom: 1rem;
+  }
+  
+  .img-stepper {
+    max-width: 70px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .iconos-optimizacion {
+    padding: 20px;
+  }
+  
+  .select-custom {
+    width: 50%; /* Ajusta el ancho según tus necesidades */
+  }
+  
+  
+  
