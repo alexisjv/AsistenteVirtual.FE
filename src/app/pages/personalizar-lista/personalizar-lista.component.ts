@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
-import { EventoProducto } from 'src/app/models/evento-producto';
 import { ListaComprasService } from 'src/app/services/lista-compras.servicio';
 import { Observable } from 'rxjs';
 import { VariantesModalComponent } from 'src/app/components/variantes-modal/variantes-modal.component';
+import { Producto } from 'src/app/models/producto';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,12 +16,19 @@ export class PersonalizarListaComponent implements OnInit{
 
   modalRef: MdbModalRef<VariantesModalComponent> | null = null;
 
-  listaProductos: Observable<EventoProducto[]>;
+  listaProductos: Producto[];
+  idEvento: number;
+  localidad: string;
 
-  constructor(private modalService: MdbModalService, private listaCompraService: ListaComprasService ) {}
+  constructor(private modalService: MdbModalService, private listaCompraService: ListaComprasService, private router: ActivatedRoute ) {}
 
   ngOnInit(): void {
-    this.getListaProductos();
+    this.router.params.subscribe(params => {
+      this.idEvento = +params['idEvento']; // Convierte el parámetro en número
+      this.localidad = params['localidad'];
+    });
+
+    this.getListaProductos(this.idEvento, this.localidad);
   }
 
   openModal() {
@@ -30,11 +38,27 @@ export class PersonalizarListaComponent implements OnInit{
     this.modalRef = this.modalService.open(VariantesModalComponent)
   }
 
-  getListaProductos(){
-    this.listaProductos = this.listaCompraService.getListaProductos();
+  getListaProductos(idEvento, localidad){
+
+    this.listaCompraService.getListaProductosPorEventoYLocalidad(idEvento, localidad).subscribe(
+      (listaProductos: Producto[]) => {
+        this.
+        listaProductos = listaProductos;
+        console.log(listaProductos);
+      },
+      (error) => console.error(error)
+    );
+
+
   }
 
   optimizar(critero: string) {
-    this.listaProductos = this.listaCompraService.getListaProductosPorCriterio(critero);
+    this.listaCompraService.getListaProductosPorCriterio(critero).subscribe(
+      (listaProductos: Producto[]) => {
+        this.
+        listaProductos = listaProductos;
+      },
+      (error) => console.error(error)
+    );
   }
 }

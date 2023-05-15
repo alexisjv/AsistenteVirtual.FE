@@ -24,12 +24,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VariantesModalComponent } from './components/variantes-modal/variantes-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonalizarListaComponent } from './pages/personalizar-lista/personalizar-lista.component';
+import { FormularioEventoComponent } from './pages/formulario-evento/formulario-evento.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonalizarListaComponent,
-    VariantesModalComponent
+    VariantesModalComponent,
+    FormularioEventoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import { PersonalizarListaComponent } from './pages/personalizar-lista/personali
     MdbTooltipModule,
     MdbValidationModule,
     HttpClientModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
