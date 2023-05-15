@@ -31,4 +31,8 @@ export class ListaComprasService {
   getListaProductosPorEventoYLocalidad(idEvento: number, localidad: string): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasPorLocalidad/${idEvento}/${localidad}`);
   }
+
+  getListaProductosEconomicos(idEvento: number): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idEvento}`);
+  }
 }

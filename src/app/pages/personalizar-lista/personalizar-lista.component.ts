@@ -61,4 +61,18 @@ export class PersonalizarListaComponent implements OnInit{
       (error) => console.error(error)
     );
   }
+
+  getListaEconomica(idEvento){
+
+    this.listaCompraService.getListaProductosEconomicos(idEvento).subscribe(
+      (listaProductos: Producto[]) => {
+        this.
+        listaProductos = listaProductos;
+        console.log(listaProductos);
+      },
+      (error) => console.error(error)
+    );
+
+
+  }
 }
