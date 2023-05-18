@@ -25,15 +25,19 @@ import { VariantesModalComponent } from './components/variantes-modal/variantes-
 import { HttpClientModule } from '@angular/common/http';
 import { PersonalizarListaComponent } from './pages/personalizar-lista/personalizar-lista.component';
 import { FormularioEventoComponent } from './pages/formulario-evento/formulario-evento.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { MapaComponent } from './components/mapa/mapa.component';
+import { MejorRutaComponent } from './components/mejor-ruta/mejor-ruta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonalizarListaComponent,
     VariantesModalComponent,
-    FormularioEventoComponent
+    FormularioEventoComponent,
+    MapaComponent,
+    MejorRutaComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,8 @@ import { AppRoutingModule } from './app-routing.module';
     MdbValidationModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
