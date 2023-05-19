@@ -27,13 +27,19 @@ import { PersonalizarListaComponent } from './pages/personalizar-lista/personali
 import { FormularioEventoComponent } from './pages/formulario-evento/formulario-evento.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
+import { FormRegistroComponent } from './components/form-registro/form-registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonalizarListaComponent,
     VariantesModalComponent,
-    FormularioEventoComponent
+    FormularioEventoComponent,
+    HeaderComponent,
+    HomeLandingComponent,
+    FormRegistroComponent
   ],
   imports: [
     BrowserModule,
