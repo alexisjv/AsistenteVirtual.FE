@@ -1,60 +1,22 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container">
-      <!-- Navbar brand -->
-      <a class="navbar-brand me-sm-0" href="https://mdbgo.com/">
-        <img src="../../../assets/images/logo.png"  >
-        <!-- <svg
-          src="../../../assets/images/logo2.svg" width="100%" height="50px"></svg> -->
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+        <img class="bi" width="120" height="80" role="img" src="../../../assets/images/logo1.svg">
       </a>
-  
-      <!-- Toggle button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        (click)="buttonsNav.toggle()"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-  
-      <!-- Collapsible wrapper -->
-      <div
-        class="collapse navbar-collapse"
-        id="navbarButtonsExample"
-        mdbCollapse
-        #buttonsNav="mdbCollapse"
-      >
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/" href="#">Home</a>
-          </li>
-        </ul>
-       
-
-        <!-- Left links -->
-  
-        <div class="d-flex align-items-center">
-          <button type="button" class="btn btn-link px-3 me-2">
-            Iniciar sesion
-          </button>
-          <button type="button" class="btn btn-primary me-3">
-            <a class="nav-link" routerLink="/registro" >Registrarme</a>
-            
-          </button>
-          <a
-            class="btn btn-dark px-3"
-            href="https://github.com/mdbootstrap/mdb-ui-kit"
-            role="button"
-            ><i class="fab fa-github"></i
-          ></a>
-        </div>
-      </div>
-      <!-- Collapsible wrapper -->
     </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a class="nav-link" routerLink="/" href="#">Home</a></li>
+      <li><a class="nav-link" routerLink="/consultar-evento" href="#">Consultar evento</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn btn-outline-primary me-2">
+        Iniciar sesion</button>
+      <button type="button" class="btn btn-primary">
+        <a class="botonregistro" routerLink="/registro">
+          Registrarme</a></button>
+    </div>
+  </header>
+</div>
