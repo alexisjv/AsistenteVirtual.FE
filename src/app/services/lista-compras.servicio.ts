@@ -35,4 +35,7 @@ export class ListaComprasService {
   getListaProductosEconomicos(idEvento: number): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idEvento}`);
   }
+  getListaTiposDeComidas(idEvento: number): Observable<Producto[]> {
+    return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idEvento}`);
+  }
 }

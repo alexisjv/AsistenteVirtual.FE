@@ -1,42 +1,49 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-xl-4 col-md-12 fondo">
-        <div class="card">
-          <div>
-            <!-- titulo -->
-            <div>
-              <div class="row">
-                <div class="col-md-12">
-                  
-                </div>
-              </div>
-              <div class="d-flex align-items-center justify-content-center">
-                <img src="assets/images/asistente.png" alt="" width="350px" height="500px">
-              </div>
-            </div>
-          </div>
+        <div>
+                <img src="{{img}}" alt=""height="450px">
         </div>
       </div>
       <div class="col-xl-8 col-md-12 fondo">
         <div class="card card-formulario">
           <div>
             <!-- titulo -->
-            <div class="card-body card-producto">
+            <div class="card-body card-producto" >
               <div class="row">
                 <div class="col-md-12">
-                  <div class="titulo-formulario">
-                    <h2>¿Qué compra querés realizar?</h2>
+                  <div class="titulo-formulario" >
+                    <h2 >¿Qué compra querés realizar?</h2>
                     <div class="linea-titulo"></div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group"  *ngIf="mostrarPreguntaQueTipoDeEvento">
                     <label class="form-label">Selecciona un evento:</label>
                     <div class="row">
                       <div class="btn-container d-flex justify-content-center mt-3">
                         <button *ngFor="let evento of listaEventos" class="icon-circle mr-3" id="botonCercano"
-                                mdbTooltip="{{evento.nombre}}" placement="top" tooltipAnimation="true" (click)="mostrarLocalidades(evento.id)">
+                                mdbTooltip="{{evento.nombre}}" placement="top" tooltipAnimation="true" (click)="mostrarTiposDeComida(evento.id)">
                           <img [src]="'assets/icons/' + evento.nombre + '.svg'" alt="Icono" class="icon-img">
                         </button>
                       </div>
+                    </div>
+                  </div>
+                  <div class="form-group"  *ngIf="mostrarPreguntaQueTipoDeComida">
+                    <label class="form-label">¿Que tipo de comidas querés ofrecer?:</label>
+                    <div class="row">
+                      <div class="btn-container d-flex justify-content-center mt-3">
+                        <button *ngFor="let comida of tiposDeComidas" class="icon-circle mr-3" id="botonCercano"
+                                mdbTooltip="{{comida.nombre}}" placement="top" tooltipAnimation="true" >
+                          <img [src]="'assets/icons/' + comida.nombre + '.svg'" alt="Icono" class="icon-img">
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group" *ngIf="mostrarOpcionSeleccionada">
+                    <label class="form-label" for="ubicacion">Selecciona su ubicación:</label>
+                    <div class="btn-container d-flex justify-content-center mt-3">
+                      <select class="form-control select-custom" [(ngModel)]="localidadSeleccionada" name="localidad">
+                        <option *ngFor="let localidad of localidades" [value]="localidad">{{localidad}}</option>
+                      </select>
                     </div>
                   </div>
                   <div class="form-group" *ngIf="mostrarOpcionSeleccionada">
