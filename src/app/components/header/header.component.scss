@@ -7,9 +7,16 @@
 }
 .botonregistro{
     color: #fff;
-   
+    text-decoration: none;
+}
+.buttonnregistro:hover{
+    background-color: #F23030 !important;
 }
 .btnIniciarSesion{
     border-color: #025373 !important;
     color: #025373 !important;
+}
+.btnIniciarSesion:hover{
+    background-color: #025373 !important;
+    color: white !important;
 }
