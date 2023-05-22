@@ -77,6 +77,7 @@
 .container-fluid{
   margin-top: 30px;
   font-family: 'Helvetica';
+  color: #2b2b2b;
 }
 
 .fondo{
@@ -84,23 +85,29 @@
 }
 
 .fondo2{
-  background-color: #1371B0;
+  background-color: #04BFBF;
   color:#000;
 }
 
 .fondo3{
   background-color: #9AC5E3;
+  color: #2b2b2b;
 }
 
 .fondo4{
   background-color: #F23030;
-  color: #000000;
+  color: #ffffff;
 }
 
 .row {
   align-items: center;
   padding: 2em;
 }
+
+.titulo{
+  color: #2b2b2b;
+}
+
 
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
