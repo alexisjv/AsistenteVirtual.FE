@@ -8,50 +8,18 @@
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
       <li><a class="nav-link menu" routerLink="/" href="#">Home</a></li>
-      <li><a class="nav-link menu" routerLink="/consultar-evento" href="#">Consultar evento</a></li>
+      <li><a class="nav-link menu" routerLink="/consultar-evento" href="#">Obtener lista de compras</a></li>
     </ul>
 
     <div class="col-md-3 text-end">
       <button type="button" class="btn btn-outline-primary btnIniciarSesion me-2">
         Iniciar sesion</button>
-      <button type="button " data-bs-target="#exampleModalToggle" data-bs-toggle="modal" class="btn btn-primary buttonnregistro text-light">
-        <a class="botonregistro" routerLink="/registro">
+      <button type="button " data-bs-target="#exampleModalRegistro" data-bs-toggle="modal" class="btn btn-primary buttonnregistro text-light">
+        <a class="botonregistro">
           Registrarme</a></button>
     </div>
   </header>
 </div>
 
 
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">¿Cómo querés registrarte?</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body d-flex row">
-        <button class="btn btn-primary mb-3" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Quiero publicar mis ofertas</button>
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Quiero crear mis listas de compras</button>
-
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Hide this modal and show the first with the button below.
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-form-registro></app-form-registro>
