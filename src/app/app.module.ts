@@ -30,6 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FormRegistroComponent } from './components/form-registro/form-registro.
     FormularioEventoComponent,
     HeaderComponent,
     HomeLandingComponent,
-    FormRegistroComponent
+    FormRegistroComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
