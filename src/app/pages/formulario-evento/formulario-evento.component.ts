@@ -106,7 +106,7 @@ export class FormularioEventoComponent {
   }
   
   consultar(): void {
-    // this.localidadesSeleccionadas =[ this.primeraLocalidad, this.segundaLocalidad, this.terceraLocalidad]
+    this.localidadesSeleccionadas =[ this.primeraLocalidad, this.segundaLocalidad, this.terceraLocalidad]
     console.log('ID del evento:', this.idEventoSeleccionado);
     console.log('Localidades' , this.localidadesSeleccionadas)
     // console.log('Localidad seleccionada:', this.localidadSeleccionada);

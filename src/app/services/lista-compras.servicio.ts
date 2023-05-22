@@ -24,11 +24,11 @@ export class ListaComprasService {
   }
 
   getListaTiposDeComidas(idEvento: number): Observable<Comidas[]> {
-    return this.http.get<Comidas[]>(this.apiUrl + `Evento/comidas/${idEvento}`);
+    return this.http.get<Comidas[]>(this.apiUrl + `Evento/comidas?idEvento=${idEvento}`);
   }
 
    getListaBebidas(idEvento: number): Observable<Bebidas[]> {
-    return this.http.get<Bebidas[]>(this.apiUrl + `Evento/bebidas/${idEvento}`);
+    return this.http.get<Bebidas[]>(this.apiUrl + `Evento/bebidas?idEvento=${idEvento}`);
   }
 
   getLocalidades () : Observable<Localidad[]> {

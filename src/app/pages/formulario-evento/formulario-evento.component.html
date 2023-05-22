@@ -46,8 +46,8 @@
                     <div class="row">
                       <div class="btn-container d-flex justify-content-center mt-3">
                         <button *ngFor="let bebida of tiposDeBebidas" class="icon-circle mr-3" id="botonCercano"
-                                mdbTooltip="{{bebida.nombre}}" placement="top" tooltipAnimation="true"  (click)="mostrarLocalidades(bebida.id)" >
-                          <img [src]="'assets/icons/' + bebida.nombre + '.svg'" alt="Icono" class="icon-img">
+                                mdbTooltip="{{bebida.tipoBebida}}" placement="top" tooltipAnimation="true"  (click)="mostrarLocalidades(bebida.id)" >
+                          <img [src]="'assets/icons/' + bebida.tipoBebida + '.svg'" alt="Icono" class="icon-img">
                         </button>
                       </div>
                     </div>
@@ -59,15 +59,15 @@
                     <div class="btn-container d-flex justify-content-center mt-3 flex-column">
                       <h4>1.</h4>
                       <select class="form-select select-custom"[(ngModel)]="primeraLocalidad" name="localidad1">
-                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad">{{localidad}}</option>
+                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad.id">{{localidad.nombre}}</option>
                       </select>
                       <h4>2.</h4>
                       <select class="form-select select-custom"[(ngModel)]="segundaLocalidad" name="localidad2">
-                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad">{{localidad}}</option>
+                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad.id">{{localidad.nombre}}</option>
                       </select>
                       <h4>3.</h4>
                       <select class="form-select select-custom"[(ngModel)]="terceraLocalidad" name="localidad3">
-                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad">{{localidad}}</option>
+                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad.id">{{localidad.nombre}}</option>
                       </select>
                     </div>
                   </div>
@@ -102,7 +102,9 @@
                   <span class="badge badge-primary rounded-pill">14 unidades</span>
                 </li>
               </ul>
-                
+              <div class="btn-container d-flex justify-content-center mt-3 mb-3">
+                <button type="button" class="btn icono-generar" (click)="consultar()">Ver ofertas</button>
+              </div>
             </div>
           </div>
         </div>
