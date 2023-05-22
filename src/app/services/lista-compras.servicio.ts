@@ -7,6 +7,7 @@ import { Evento } from '../models/evento';
 import { Localidad } from '../models/localidad';
 import { Comidas } from '../models/comidas';
 import { Bebidas } from '../models/bebidas';
+import { ProductoLista } from '../models/ProductoLista';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ export class ListaComprasService {
 
   getLocalidades () : Observable<Localidad[]> {
     return this.http.get<Localidad[]>(this.apiUrl + `Ubicacion/localidades`);
+  }
+
+  getListadeCompras( idEvento:number, idComida : number , idBebida: number){
+    return this.http.get<ProductoLista[]>(this.apiUrl + `Evento/listado?idEvento=${idEvento}&idComida=${idComida}&idBebida=${idBebida}`);
   }
 
 //Metodos de escenarios finales

@@ -7,6 +7,7 @@ import { Evento } from 'src/app/models/evento';
 import { Localidad } from 'src/app/models/localidad';
 import { ListaComprasService } from 'src/app/services/lista-compras.servicio';
 import { Producto } from 'src/app/models/producto';
+import { ProductoLista } from 'src/app/models/ProductoLista';
 
 @Component({
   selector: 'app-formulario-evento',
@@ -33,7 +34,8 @@ export class FormularioEventoComponent {
   mostrarListaDeProductos : boolean = false;
   img : string = "assets/images/asistente.png"
   mostrarQueCompraQueresRealizar: boolean = true;
-  listaDeProductos:Producto[];
+  listaDeCompras:ProductoLista[];
+  mostrarLoading: boolean=false;
 
   constructor(private listaComprasService: ListaComprasService, private router: Router ) {}
 
@@ -104,34 +106,34 @@ export class FormularioEventoComponent {
     this.idBebidaSeleccionada = idBebida; 
 
   }
+
+  getListadoDeCompras(){
+    this.listaComprasService.getListadeCompras(this.idEventoSeleccionado, this.idComidaSeleccionada, this.idBebidaSeleccionada).subscribe(
+      (listaCompras: ProductoLista[]) => {
+        this.listaDeCompras = listaCompras;
+        this.mostrarLoading = false;
+      },
+      (error) => console.error(error)
+    );   
+  }
   
   consultar(): void {
+    this.mostrarListaDeProductos = true;    
+    this.mostrarLoading = true;
+    this.mostrarOpcionSeleccionada=false
+    this.mostrarQueCompraQueresRealizar = false; 
+    this.getListadoDeCompras();
     this.localidadesSeleccionadas =[ this.primeraLocalidad, this.segundaLocalidad, this.terceraLocalidad]
     console.log('ID del evento:', this.idEventoSeleccionado);
-    console.log('Localidades' , this.localidadesSeleccionadas)
-    // console.log('Localidad seleccionada:', this.localidadSeleccionada);
-    // this.router.navigate(['/personalizarLista', this.idEventoSeleccionado, this.localidadSeleccionada]);
-    this.router.navigate(['/personalizarLista'],  
-    { queryParams:{ 
-                    idEvento: this.idEventoSeleccionado, 
-                    idComida: this.idComidaSeleccionada,
-                    idBebida : this.idBebidaSeleccionada,
-                    idLocalidadesSeleccionadas: this.localidadesSeleccionadas} });
-    this.mostrarListaDeProductos = true;    
-    this.mostrarOpcionSeleccionada=false
-    this.mostrarQueCompraQueresRealizar = false;     
-    this.listaDeProductos = [{
-                      nombreProducto: 'Mayonesa',
-                      marca:'Pepa',
-                      imagen: 'img',
-                      precio: 12,
-                      nombreComercio: 'comercio',
-                      },{
-                        nombreProducto: 'Ketchup',
-                        marca:'Pepa',
-                        imagen: 'img',
-                        precio: 12,
-                        nombreComercio: 'comercio',
-                        }]       
-  }
+    console.log('Localidades' , this.localidadesSeleccionadas);
+
+    // this.router.navigate(['/personalizarLista'],  
+    // { queryParams:{ 
+    //                 idEvento: this.idEventoSeleccionado, 
+    //                 idComida: this.idComidaSeleccionada,
+    //                 idBebida : this.idBebidaSeleccionada,
+    //                 idLocalidadesSeleccionadas: this.localidadesSeleccionadas} });
+    
+    
+}
 }
