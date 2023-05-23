@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { Producto } from '../models/producto';
 import { Router } from '@angular/router';
 import { Evento } from '../models/evento';
+import { Localidad } from '../models/localidad';
+import { Comidas } from '../models/comidas';
+import { Bebidas } from '../models/bebidas';
+import { ProductoLista } from '../models/ProductoLista';
 
 @Injectable({
   providedIn: 'root'
@@ -15,15 +19,29 @@ export class ListaComprasService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  //Metodos de las preguntas
   getListaEventos(): Observable<Evento[]>{
     return this.http.get<Evento[]>(this.apiUrl + 'evento/eventos');
-
   }
 
-  getListaProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.apiUrl + 'comprasComunitarias');
+  getListaTiposDeComidas(idEvento: number): Observable<Comidas[]> {
+    return this.http.get<Comidas[]>(this.apiUrl + `Evento/comidas?idEvento=${idEvento}`);
   }
 
+   getListaBebidas(idEvento: number): Observable<Bebidas[]> {
+    return this.http.get<Bebidas[]>(this.apiUrl + `Evento/bebidas?idEvento=${idEvento}`);
+  }
+
+  getLocalidades () : Observable<Localidad[]> {
+    return this.http.get<Localidad[]>(this.apiUrl + `Ubicacion/localidades`);
+  }
+
+  getListadeCompras( idEvento:number, idComida : number , idBebida: number){
+    return this.http.get<ProductoLista[]>(this.apiUrl + `Evento/listado?idEvento=${idEvento}&idComida=${idComida}&idBebida=${idBebida}`);
+  }
+
+//Metodos de escenarios finales
+ 
   getListaProductosPorCriterio(criterio): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.apiUrl + 'obtenerStock');
   }
@@ -35,7 +53,6 @@ export class ListaComprasService {
   getListaProductosEconomicos(idEvento: number): Observable<Producto[]> {
     return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idEvento}`);
   }
-  getListaTiposDeComidas(idEvento: number): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idEvento}`);
-  }
+
+  
 }
