@@ -35,30 +35,53 @@ export class MejorRutaComponent implements OnInit {
     
   }
 
-  calculateAndDisplayRoute(comercios: any[]) {
+  calculateAndDisplayRoute(comercios: any[], callback: (distance: string) => void) {
     this.comercios = comercios;
     const origin = this.comercios[0].location;
     const destination = this.comercios[this.comercios.length - 1].location;
-    const waypoints = this.comercios.slice(1, this.comercios.length - 1).map(waypoint => {
-      return {
-        location: waypoint.location,
-        stopover: true
-      };
-    });
-  
-    this.initMap(); // Mueve esta línea aquí
-  
+    const waypoints = this.comercios
+      .slice(1, this.comercios.length - 1)
+      .map((waypoint) => {
+        return {
+          location: waypoint.location,
+          stopover: true,
+        };
+      });
+
+      this.initMap(); // Mueve esta línea aquí
+
+
     const request = {
       origin: origin,
       destination: destination,
       waypoints: waypoints,
       optimizeWaypoints: true,
-      travelMode: 'DRIVING'
+      travelMode: 'DRIVING',
     };
-  
+
     this.directionsService.route(request, (response, status) => {
       if (status === 'OK') {
         this.directionsRenderer.setDirections(response);
+        const service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+          {
+            origins: [origin],
+            destinations: [destination],
+            travelMode: 'DRIVING',
+            unitSystem: google.maps.UnitSystem.METRIC,
+          },
+          (response, status) => {
+            if (status === 'OK') {
+              const distance = response.rows[0].elements[0].distance.text;
+              console.log('Distancia del recorrido:', distance);
+              callback(distance); // Llamar a la función de callback con el valor de distance
+            } else {
+              console.error('No se pudo calcular la distancia. Error:', status);
+            }
+          }
+        );
+        console.log(comercios);
+        console.log(destination);
       } else {
         window.alert('No se pudo calcular la ruta. Error: ' + status);
       }
