@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Producto } from '../models/producto';
 import { Router } from '@angular/router';
 import { Evento } from '../models/evento';
@@ -8,6 +8,7 @@ import { Localidad } from '../models/localidad';
 import { Comidas } from '../models/comidas';
 import { Bebidas } from '../models/bebidas';
 import { ProductoLista } from '../models/ProductoLista';
+import { Oferta } from '../models/oferta';
 
 @Injectable({
   providedIn: 'root'
@@ -46,13 +47,16 @@ export class ListaComprasService {
     return this.http.get<Producto[]>(this.apiUrl + 'obtenerStock');
   }
 
-  getListaProductosPorEventoYLocalidad(idEvento: number, localidad: string): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasPorLocalidad/${idEvento}/${localidad}`);
+  getListaOfertasMenorRecorrido(idLocalidad: number, idComida: number, idBebida: number): Observable<Oferta[]> {
+    return this.http.get<Oferta[]>(this.apiUrl + `oferta/ofertasPorLocalidad/${idLocalidad}/${idComida}/${idBebida}`);
   }
 
-  getListaProductosEconomicos(idEvento: number): Observable<Producto[]> {
-    return this.http.get<Producto[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idEvento}`);
+  postListaOfertasEconomicas(idComercios: number[], idComida: number, idBebida: number): Observable<Oferta[]> {
+
+    return this.http.post<Oferta[]>(this.apiUrl + `oferta/ofertasMasEconomicas/${idComida}/${idBebida}`, idComercios);
+    
   }
+  
 
   
 }
