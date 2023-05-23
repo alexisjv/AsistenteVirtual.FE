@@ -9,13 +9,14 @@
         <div class="card card-formulario">
           <div>
             <!-- titulo -->
-            <div class="card-body card-producto" >
+            <div class="card-body card-producto" *ngIf="mostrarQueCompraQueresRealizar" >
               <div class="row">
                 <div class="col-md-12">
                   <div class="titulo-formulario" >
                     <h2 >¿Qué compra querés realizar?</h2>
                     <div class="linea-titulo"></div>
                   </div>
+                  <!-- ¿Que tipo de evento? -->
                   <div class="form-group"  *ngIf="mostrarPreguntaQueTipoDeEvento">
                     <label class="form-label">Selecciona un evento:</label>
                     <div class="row">
@@ -27,42 +28,83 @@
                       </div>
                     </div>
                   </div>
+                  <!-- ¿Que tipo de comidas? -->
                   <div class="form-group"  *ngIf="mostrarPreguntaQueTipoDeComida">
                     <label class="form-label">¿Que tipo de comidas querés ofrecer?:</label>
                     <div class="row">
                       <div class="btn-container d-flex justify-content-center mt-3">
                         <button *ngFor="let comida of tiposDeComidas" class="icon-circle mr-3" id="botonCercano"
-                                mdbTooltip="{{comida.nombre}}" placement="top" tooltipAnimation="true" >
+                                mdbTooltip="{{comida.nombre}}" placement="top" tooltipAnimation="true" (click)="mostrarTiposDeBebida(comida.id)" >
                           <img [src]="'assets/icons/' + comida.nombre + '.svg'" alt="Icono" class="icon-img">
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="form-group" *ngIf="mostrarOpcionSeleccionada">
-                    <label class="form-label" for="ubicacion">Selecciona su ubicación:</label>
-                    <div class="btn-container d-flex justify-content-center mt-3">
-                      <select class="form-control select-custom" [(ngModel)]="localidadSeleccionada" name="localidad">
-                        <option *ngFor="let localidad of localidades" [value]="localidad">{{localidad}}</option>
-                      </select>
+                  <!-- Que tipo de bebidas? -->
+                  <div class="form-group"  *ngIf="mostrarPreguntaQueTipoDeBebida">
+                    <label class="form-label">¿Que tipo de bebidas querés ofrecer?:</label>
+                    <div class="row">
+                      <div class="btn-container d-flex justify-content-center mt-3">
+                        <button *ngFor="let bebida of tiposDeBebidas" class="icon-circle mr-3" id="botonCercano"
+                                mdbTooltip="{{bebida.tipoBebida}}" placement="top" tooltipAnimation="true"  (click)="mostrarLocalidades(bebida.id)" >
+                          <img [src]="'assets/icons/' + bebida.tipoBebida + '.svg'" alt="Icono" class="icon-img">
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group" *ngIf="mostrarOpcionSeleccionada">
-                    <label class="form-label" for="ubicacion">Selecciona su ubicación:</label>
-                    <div class="btn-container d-flex justify-content-center mt-3">
-                      <select class="form-control select-custom" [(ngModel)]="localidadSeleccionada" name="localidad">
-                        <option *ngFor="let localidad of localidades" [value]="localidad">{{localidad}}</option>
+               <!-- Eleccion de las 3 zonas -->
+                  <div class="form-group justify-content-center align-content-center" *ngIf="mostrarOpcionSeleccionada">
+                    <label class="form-label" for="ubicacion">Selecciona 3 zonas que te interesen</label>
+                    <p class="text-light">(Deberás seleccionarlas en orden de prioridad)</p>
+                    <div class="btn-container d-flex justify-content-center mt-3 flex-column">
+                      <h4>1.</h4>
+                      <select class="form-select select-custom"[(ngModel)]="primeraLocalidad" name="localidad1">
+                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad.id">{{localidad.nombre}}</option>
+                      </select>
+                      <h4>2.</h4>
+                      <select class="form-select select-custom"[(ngModel)]="segundaLocalidad" name="localidad2">
+                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad.id">{{localidad.nombre}}</option>
+                      </select>
+                      <h4>3.</h4>
+                      <select class="form-select select-custom"[(ngModel)]="terceraLocalidad" name="localidad3">
+                        <option *ngFor="let localidad of ListaDeLocalidades" [value]="localidad.id">{{localidad.nombre}}</option>
                       </select>
                     </div>
                   </div>
                   <div class="row" *ngIf="mostrarOpcionSeleccionada">
                     <div class="btn-container d-flex justify-content-center mt-3">
-                      <button type="button" class="btn icono-generar" (click)="consultar()">Consultar Lista</button>
+                      <button type="button" class="btn icono-generar" (click)="consultar()">Consultar lista</button>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              
+            </div>
+          </div>
+          <div class="row" *ngIf="mostrarListaDeProductos">
+            <div class="d-flex flex-column justify-content-center">
+              <div class="titulo-formulario d-flex flex-column justify-content-center" >
+                  <div class="icon-circle">
+                    <img [src]="'assets/icons/CanastaCompras.svg'" alt="Icono" class="icon-canasta">
+                  </div>
+                  <h2>Tu lista de compras:</h2>
+                  <div class="linea-titulo"></div>
+              </div>
+
+              <div class="text-center" *ngIf="mostrarLoading">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+
+              <ul class="list-group list-group-dark w-50 p-3 mx-auto">
+                <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let productoLista of listaDeCompras">
+                 <p>{{productoLista.nombre}}</p>
+                  <span class="badge badge-primary rounded-pill">14 unidades</span>
+                </li>
+              </ul>
+              <div class="btn-container d-flex justify-content-center mt-3 mb-3">
+                <button type="button" class="btn icono-generar" (click)="consultar()">Ver ofertas</button>
+              </div>
             </div>
           </div>
         </div>

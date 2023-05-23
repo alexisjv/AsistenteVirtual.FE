@@ -1,4 +1,4 @@
 export interface Localidad {
-    value: number;
-    text: string;
+    id: number;
+    nombre: string;
   }

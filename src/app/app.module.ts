@@ -23,7 +23,7 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VariantesModalComponent } from './components/variantes-modal/variantes-modal.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PersonalizarListaComponent } from './pages/personalizar-lista/personalizar-lista.component';
+import { OptimizadorListaComponent } from './pages/optimizador-lista/optimizador-lista.component';
 import { FormularioEventoComponent } from './pages/formulario-evento/formulario-evento.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,17 +31,20 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MejorRutaComponent } from './components/mejor-ruta/mejor-ruta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonalizarListaComponent,
+    OptimizadorListaComponent,
     VariantesModalComponent,
     FormularioEventoComponent,
     HeaderComponent,
     HomeLandingComponent,
     FormRegistroComponent,
-    FooterComponent
+    Registro-Usuario,
+    FooterComponent,
+    MejorRutaComponent
   ],
   imports: [
     BrowserModule,

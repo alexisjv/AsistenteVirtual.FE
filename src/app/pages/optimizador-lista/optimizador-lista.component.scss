@@ -46,12 +46,16 @@ h2 {
   padding-top: 15px;
 }
 
+td{
+  font-size: 13px;
+}
+
 .title {
   font-size: 12px;
 }
 
 .price {
-  font-size: 25px;
+  font-size: 18px;
   font-style: bold;
     font-family: 'Arial', sans-serif;
 
@@ -60,8 +64,10 @@ h2 {
 /* Botones */
 .icono-generar,
 .boton-filtrar {
-  background-color: #404040;
-  color: white;
+    background-color: #404040;
+    color: white;
+    margin-top: 20px;
+  
 }
 
 .boton-producto,
@@ -76,7 +82,7 @@ h2 {
 
 /* Imágenes */
 .card-img-top {
-  width: 60px;
+  width: 40px;
 }
 
 .image-container {
@@ -92,6 +98,21 @@ h2 {
 }
 
 /* Iconos */
+.icon-producto {
+  width: 70px;
+  height: 70px;
+  border-radius: 10%;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+
+}
+
+
+.icon-generar:hover {
+  background-color: #04bfbf !important;
+}
+
 .icon-circle {
   width: 60px;
   height: 60px;
@@ -188,16 +209,75 @@ time {
   padding-bottom: 1rem;
 }
 
-.img-stepper {
-  max-width: 70px;
+.img-producto {
+  max-width: 80px;
   border-radius: 10px;
-  padding: 5px;
 }
 
-.iconos-optimizacion {
-  padding: 20px;
+.subtitulo{
+  padding-bottom: 20px;
 }
+
+.div-icono{
+  display: flex; justify-content: center;
+  padding-top: 30px;
+}
+
+
+.tabla-seleccionada { /* Ejemplo de borde rojo */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.tabla-desactivada {
+  
+  background-color: rgba(0, 0, 0, 0.5); /* Ejemplo de fondo negro con opacidad del 50% */
+  opacity: 0.5; /* Ejemplo de reducir la opacidad al 50% */
+  pointer-events: none; /* Ejemplo de desactivar los eventos del mouse */
+  /* Otros estilos personalizados */
+}
+
+p {
+  color: white;
+}
+
+
 
 /*range*/
+
+
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+      display: none;
+  }
+  .carousel-inner .carousel-item > div:first-child {
+      display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+  
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }
+  
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+transform: translateX(0);
+}
+
 
 

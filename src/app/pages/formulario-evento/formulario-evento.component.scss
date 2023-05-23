@@ -29,6 +29,7 @@
     text-align: center;
     background-color: #04bfbf;
     padding: 10px;
+    align-items: center;
   }
   
   .linea-titulo {
@@ -74,6 +75,9 @@
     background-color: #404040;
     color: white;
   }
+  .icono-generar:hover{
+    background-color: #F23030 !important;
+  }
   
   .boton-producto,
   .boton-producto-add {
@@ -116,6 +120,7 @@
     font-size: 24px;
     transition: background-color 0.3s;
     border: none;
+    text-align: center;
   }
 
   .icon-img {
@@ -126,13 +131,22 @@
     align-items: center;
     justify-content: center;
   }
+
+  .icon-canasta{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background-color: #404040;
+  }
   
   .icon-circle:hover {
     background-color: #F23030 !important;
   }
   
   .icon-generar:hover {
-    background-color: #04bfbf !important;
+    background-color: #F23030 !important;
   }
   
   /* Tabla */
@@ -220,6 +234,12 @@
   
   .select-custom {
     width: 50%; /* Ajusta el ancho según tus necesidades */
+  }
+  h4{
+    color: #ffffff;
+  }
+  .rounded-pill{
+    background-color: #F23030;
   }
   
   
