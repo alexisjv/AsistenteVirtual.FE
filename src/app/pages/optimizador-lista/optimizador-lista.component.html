@@ -110,11 +110,17 @@
                         <button class="icon-circle mr-3" id="botonEconomico" (click)="seleccionarListaEconomica()" mdbTooltip="Más económico" placement="top" tooltipAnimation="true">
                           <img src="assets/icons/precio.svg" alt="Icono económico" width="30" height="30">
                         </button>
+
+
                       </div>
                       <div>
                         <h2 class="subtitulo">
                           Más económico
                         </h2>
+                      </div>
+                      <div>
+                        <p>Distancia a recorrer: {{ distanciaEconomico }}</p>
+                        <p>Comercios a visitar: {{ cantidadComerciosEconomico }}</p>
                       </div>
                       <table class="table tabla-redondeada" [ngClass]="{'tabla-seleccionada': listaEconomicaSeleccionada, 'tabla-desactivada': menosRecorridoSeleccionado}">
                         <tbody>
@@ -171,11 +177,16 @@
                         <button class="icon-circle mr-3" id="botonMenosRecorrido" (click)="seleccionarMenosRecorrido()" mdbTooltip="Menos recorrido" placement="top" tooltipAnimation="true">
                           <img src="assets/icons/ruta.svg" alt="Icono recorrido" width="30" height="30">
                         </button>
+
                       </div>
                       <div>
                         <h2 class="subtitulo">
                           Menos recorrido
                         </h2>
+                      </div>
+                      <div>
+                        <p>Distancia a recorrer: {{ distanciaMenosRecorrido }}</p>
+                        <p>Comercios a visitar: {{ cantidadComerciosMenosRecorrido }}</p>
                       </div>
                       <table class="table tabla-redondeada" [ngClass]="{'tabla-seleccionada': menosRecorridoSeleccionado, 'tabla-desactivada': listaEconomicaSeleccionada}">
                         <tbody>
