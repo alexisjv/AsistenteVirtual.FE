@@ -6,7 +6,7 @@
       </div>
       <div class="col-12 col-lg-5 text-center">
         <div class="col">
-          <h1>
+          <h1 id="animated-text" class="fade-in">
             ¡Hola! Me llamo Mateo y
             estoy para ayudarte a
             crear tu lista de compras
@@ -17,7 +17,7 @@
           </h1>
         </div>
         <div class="col mt-5">
-          <button class="btn btn-primary p-3">Arma tu lista de compras</button>
+          <button id="animated-text" class="fade-in btn btn-primary p-3"><a routerLink="/consultar-evento">Arma tu lista de compras</a></button>
         </div>
       </div>
     </div>
@@ -89,9 +89,9 @@
 
     <div class="row fondo3">
       <div class="col-12 text-center">
-        <h1>¿Tenes un negocio?</h1>
+        <h2>¿Tenes un comercio?</h2>
         <h2>
-          Publicá las ofertas de tu negocio
+          Publicá las ofertas de tu comercio
         </h2>
         <hr>
       </div>
@@ -105,7 +105,7 @@
           <h3 class="titulo">Registrate</h3>
         </div>
         <div>
-          <p>Registrá tu usuario con tus datos y los de tu negocio
+          <p>Registrá tu usuario con tus datos y los de tu comercio
           </p>
         </div>
       </div>
@@ -151,7 +151,7 @@
           las mismas, y aumentar tus ventas.
         </h3>
         <br>
-        <button class="btn btn-primary p-3">
+        <button class="btn btn-primary p-3" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
           Registrate como comercio
         </button>
       </div>
@@ -160,50 +160,9 @@
       </div>
     </div>
   </section>
-
-  <!-- <section class="page-section">
-    <div class="text-center">
-        <h2 class="section-heading text-uppercase">Nuestro equipo</h2>
-        <h3 class="section-subheading text-muted">Equipo de desarrollo de Eventify. Aplicacion web desarrollada en la Universidad Nacional de la Matanza.</h3>
-    </div>
-    <div class="row">
-        <div class="col-12 col-sm">
-            <div class="team-member">
-                <img class="mx-auto rounded-circle" src="../../../assets/images/3.jpg" alt="..." />
-                <h4>Fabrizio Franco</h4>
-                <p class="text-muted">Frontend Engineer</p>
-            </div>
-        </div>
-        <div class="col-12 col-sm">
-            <div class="team-member">
-                <img class="mx-auto rounded-circle" src="../../../assets/images/3.jpg" alt="..." />
-                <h4>Carla xxx</h4>
-                <p class="text-muted">Frontend Engineer</p>
-            </div>
-        </div>
-        <div class="col-12 col-sm">
-            <div class="team-member">
-                <img class="mx-auto rounded-circle" src="../../../assets/images/3.jpg" alt="..." />
-                <h4>Alexis xxxx</h4>
-                <p class="text-muted">Frontend Engineer</p>
-            </div>
-        </div>
-        <div class="col-12 col-sm">
-          <div class="team-member">
-              <img class="mx-auto rounded-circle" src="../../../assets/images/3.jpg" alt="..." />
-              <h4>Scarlet xxx</h4>
-              <p class="text-muted">Backend Engineer</p>
-          </div>
-      </div>
-      <div class="col-12 col-sm">
-        <div class="team-member">
-            <img class="mx-auto rounded-circle" src="../../../assets/images/3.jpg" alt="..." />
-            <h4>Diego xxx</h4>
-            <p class="text-muted">Backend Engineer</p>
-        </div>
-    </div>
-    </div>
-  </section> -->
 </div>
 
-
+<script>
+  const text = document.getElementById('animated-text');
+  text.classList.add('fade-in');
+</script>
