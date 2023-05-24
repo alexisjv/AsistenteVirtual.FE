@@ -116,6 +116,27 @@ export class MejorRutaComponent implements OnInit {
     const googleMapsAppLink = `https://www.google.com/maps/dir/?api=1&origin=${encodedOrigin}&destination=${encodedDestination}&waypoints=${encodedWaypoints.join('%7C')}&dirflg=d`;
     window.open(googleMapsAppLink);
   }
+
+  obtenerLinkGps(): string {
+    const origin = this.comercios[0].location;
+    const destination = this.comercios[this.comercios.length - 1].location;
+    const waypoints = this.comercios.slice(1, this.comercios.length - 1).map(waypoint => {
+      return {
+        location: waypoint.location,
+        stopover: true
+      };
+    });
+  
+    const encodedOrigin = encodeURIComponent(origin);
+    const encodedDestination = encodeURIComponent(destination);
+    const encodedWaypoints = waypoints.map(waypoint => encodeURIComponent(waypoint.location));
+  
+  
+    // Abre el recorrido en la aplicación Google Maps en el celular
+    const googleMapsAppLink = `https://www.google.com/maps/dir/?api=1&origin=${encodedOrigin}&destination=${encodedDestination}&waypoints=${encodedWaypoints.join('%7C')}&dirflg=d`;
+    
+    return googleMapsAppLink;
+  }
   
   
   

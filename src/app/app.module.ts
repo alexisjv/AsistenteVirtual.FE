@@ -32,6 +32,7 @@ import { HomeLandingComponent } from './pages/home-landing/home-landing.componen
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
 import { MejorRutaComponent } from './components/mejor-ruta/mejor-ruta.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MdbValidationModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

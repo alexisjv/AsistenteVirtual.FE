@@ -249,17 +249,24 @@
                 </div>
               </div>
               <div class="col-xl-4 col-md-12">
-              <!--   <h2>Información:</h2>
+                <h2>Información:</h2>
                 <div>
                   <br />
                   <p>
-                    Presenta este código QR en los comercios adheridos para
-                    acceder a los descuentos de tus productos
+                    Escanea el código QR para abrir el GPS
                   </p>
-                  <img src="assets/images/qr-code.png" width="400px" />
+                  <!-- <img src="assets/images/qr-code.png" width="400px" /> -->
+                  <ngx-qrcode
+                    [elementType]="elementType"
+                    [value]="value"
+                    cssClass="aclass"
+                    [errorCorrectionLevel]="errorCorrectionLevel"
+>
+                  </ngx-qrcode>
                 </div>
- -->
+ 
                 <div>
+                  <br>
                   <h2>Datos del trayecto:</h2>
                   <br />
                   <p>Distancia a recorrer: {{ distanciaElegida }}</p>

@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MejorRutaComponent } from 'src/app/components/mejor-ruta/mejor-ruta.component';
 import { Oferta } from 'src/app/models/oferta';
 import { Evento } from 'src/app/models/evento';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
 
 @Component({
@@ -40,6 +41,11 @@ export class OptimizadorListaComponent implements OnInit{
   resumen = false;
   escenarios = true;
   estaLogueado = false;
+
+  
+  elementType = NgxQrcodeElementTypes.URL;
+  errorCorectionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  value = "";
 
 
   constructor(private modalService: MdbModalService, private listaCompraService: ListaComprasService, private router: ActivatedRoute ) {}
@@ -149,6 +155,7 @@ export class OptimizadorListaComponent implements OnInit{
       this.distanciaEconomico = distance;
       this.distanciaElegida = this.distanciaEconomico;
       this.comerciosElegido = waypoints.length - 1;
+      this.obtenerLinkGps();
     });
   }
   
@@ -182,11 +189,18 @@ export class OptimizadorListaComponent implements OnInit{
       this.distanciaMenosRecorrido = distance;
       this.distanciaElegida = this.distanciaMenosRecorrido;
       this.comerciosElegido = waypoints.length - 1;
+      this.obtenerLinkGps();
     });
   }
   
   public shareMap() {
     this.mejorRutaComponent.shareMap();
+  }
+
+  public obtenerLinkGps(){
+    const url = this.mejorRutaComponent.obtenerLinkGps();
+    this.value = url;
+    console.log(this.value)
   }
 
   groupOffersByCommerceName(offers: Oferta[]): Oferta[][] {
@@ -216,6 +230,7 @@ export class OptimizadorListaComponent implements OnInit{
 
   elegirOtroEscenario(){
     this.escenarios = true;
+    this.resumen = false;
   }
   
 }
