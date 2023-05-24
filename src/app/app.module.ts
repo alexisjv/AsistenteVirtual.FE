@@ -30,8 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeLandingComponent } from './pages/home-landing/home-landing.component';
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { MejorRutaComponent } from './components/mejor-ruta/mejor-ruta.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +42,8 @@ import { MejorRutaComponent } from './components/mejor-ruta/mejor-ruta.component
     HeaderComponent,
     HomeLandingComponent,
     FormRegistroComponent,
-    Registro-Usuario,
     FooterComponent,
+    HeaderComponent,
     MejorRutaComponent
   ],
   imports: [

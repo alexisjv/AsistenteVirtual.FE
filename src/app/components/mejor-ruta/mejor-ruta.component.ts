@@ -111,7 +111,12 @@ export class MejorRutaComponent implements OnInit {
   
     // Abre WhatsApp Web en una nueva pestaña
     window.open(whatsappWebLink, '_blank');
+  
+    // Abre el recorrido en la aplicación Google Maps en el celular
+    const googleMapsAppLink = `https://www.google.com/maps/dir/?api=1&origin=${encodedOrigin}&destination=${encodedDestination}&waypoints=${encodedWaypoints.join('%7C')}&dirflg=d`;
+    window.open(googleMapsAppLink);
   }
+  
   
   
   

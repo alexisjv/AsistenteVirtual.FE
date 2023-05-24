@@ -7,7 +7,7 @@ import { FormRegistroComponent } from './components/form-registro/form-registro.
 
 
 const routes: Routes = [
-  { path: 'optimizadorLista/:idEvento/:localidad', component: OptimizadorListaComponent },
+  { path: 'optimizadorLista', component: OptimizadorListaComponent },
   { path: 'consultar-evento', component: FormularioEventoComponent },
   {path: '', component: HomeLandingComponent},
   {path: 'registro', component: FormRegistroComponent}
