@@ -36,6 +36,7 @@ export class OptimizadorListaComponent implements OnInit{
   nombreEvento: string;
   resumen = false;
   escenarios = true;
+  estaLogueado = false;
 
 
   constructor(private modalService: MdbModalService, private listaCompraService: ListaComprasService, private router: ActivatedRoute ) {}
@@ -185,6 +186,10 @@ export class OptimizadorListaComponent implements OnInit{
   obtenerResumen(){
     this.escenarios = false;
     this.resumen = true;
+  }
+
+  inciarSesion(){
+    this.estaLogueado = true;
   }
   
 }

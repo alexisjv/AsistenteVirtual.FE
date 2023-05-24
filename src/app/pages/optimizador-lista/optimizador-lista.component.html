@@ -1,194 +1,185 @@
-
-
 <div class="container-fluid">
   <div class="row">
-    <!-- columna lista de compras -->
- <!--   <div class="col-xl-12 col-lg-12 col-md-12 fondo">
-      <div class="div-lista">
-        <div class="card">
-          <div class="card-body card-producto">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="titulo">
-                    <h2>Productos para tu evento</h2>
-                    <div class="linea-titulo"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <button
-                class="icon-producto"
-                style="
-                  background-image: url('https://carrefourar.vtexassets.com/arquivos/ids/226775/7790290101602_02.jpg?v=637715449494370000');
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                "
-                mdbTooltip="Fernet"
-                placement="top"
-                tooltipAnimation="true"
-              >
-              </button>
-              <button
-                class="icon-producto"
-                style="
-                  background-image: url('https://carrefourar.vtexassets.com/arquivos/ids/226775/7790290101602_02.jpg?v=637715449494370000');
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                "
-                mdbTooltip="Fernet"
-                placement="top"
-                tooltipAnimation="true"
-              >
-              </button>
-              <button
-                class="icon-producto"
-                style="
-                  background-image: url('https://carrefourar.vtexassets.com/arquivos/ids/226775/7790290101602_02.jpg?v=637715449494370000');
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                "
-                mdbTooltip="Fernet"
-                placement="top"
-                tooltipAnimation="true"
-              >
-              </button>
-              <button
-                class="icon-producto"
-                style="
-                  background-image: url('https://carrefourar.vtexassets.com/arquivos/ids/226775/7790290101602_02.jpg?v=637715449494370000');
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                "
-                mdbTooltip="Fernet"
-                placement="top"
-                tooltipAnimation="true"
-              >
-              </button>
-              <button
-                class="icon-producto"
-                style="
-                  background-image: url('https://carrefourar.vtexassets.com/arquivos/ids/226775/7790290101602_02.jpg?v=637715449494370000');
-                  background-repeat: no-repeat;
-                  background-size: cover;
-                "
-                mdbTooltip="Fernet"
-                placement="top"
-                tooltipAnimation="true"
-              >
-              </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    -->
-
     <!-- columna optimizacion -->
-    <!-- columna optimizacion -->
-  <div class="col-xl-12 col-md-12" *ngIf="escenarios">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="div-lista">
-          <div class="card card-optimizar">
-            <div>
-                          <!-- titulo optimizar -->
-              <div class="card-body card-producto">
-                <div class="row">
-                  <div class="col-md-8">
-                    <h2
-                    >
-                      Optimizar lista
-                    </h2>
-                    <div class="linea-titulo"
-                    >
-                  </div>
+    <div class="col-xl-12 col-md-12" *ngIf="escenarios">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="div-lista">
+            <div class="card card-optimizar">
+              <div>
+                <!-- titulo optimizar -->
+                <div class="card-body card-producto">
                   <div class="row">
-                    <div class="col-xl-6">
-                      <div class="div-icono">
-                        <button class="icon-circle mr-3" id="botonEconomico" (click)="seleccionarListaEconomica()" mdbTooltip="Más económico" placement="top" tooltipAnimation="true">
-                          <img src="assets/icons/precio.svg" alt="Icono económico" width="30" height="30">
-                        </button>
+                    <div class="col-md-12">
+                      <h2>Optimizar lista</h2>
+                      <div class="linea-titulo"></div>
+                      <div class="row">
+                        <div class="col-xl-4">
+                          <div class="div-icono">
+                            <button
+                              class="icon-circle mr-3"
+                              id="botonEconomico"
+                              (click)="seleccionarListaEconomica()"
+                              mdbTooltip="Más económico"
+                              placement="top"
+                              tooltipAnimation="true"
+                            >
+                              <img
+                                src="assets/icons/precio.svg"
+                                alt="Icono económico"
+                                width="30"
+                                height="30"
+                              />
+                            </button>
+                          </div>
+                          <div>
+                            <h2 class="subtitulo">Más económico</h2>
+                          </div>
+                          <div>
+                            <p>
+                              Distancia a recorrer: {{ distanciaEconomico }}
+                            </p>
+                            <p>
+                              Comercios a visitar:
+                              {{ cantidadComerciosEconomico }}
+                            </p>
+                          </div>
+                          <table
+                            class="table tabla-redondeada"
+                            [ngClass]="{
+                              'tabla-seleccionada': listaEconomicaSeleccionada,
+                              'tabla-desactivada': menosRecorridoSeleccionado
+                            }"
+                          >
+                            <tbody>
+                              <tr
+                                class="fila list text-center align-middle"
+                                *ngFor="let oferta of listaOfertaEconomicos"
+                              >
+                                <th scope="row">
+                                  <img
+                                    src="{{ oferta.imagen }}"
+                                    class="card-img-top mx-auto"
+                                  />
+                                </th>
+                                <td class="align-middle">
+                                  {{ oferta.nombreProducto }}
+                                </td>
 
+                                <td class="align-middle">
+                                  {{ oferta.nombreComercio }}
+                                </td>
+                                <td class="align-middle price">
+                                  ${{ oferta.precio }}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
 
-                      </div>
-                      <div>
-                        <h2 class="subtitulo">
-                          Más económico
-                        </h2>
-                      </div>
-                      <div>
-                        <p>Distancia a recorrer: {{ distanciaEconomico }}</p>
-                        <p>Comercios a visitar: {{ cantidadComerciosEconomico }}</p>
-                      </div>
-                      <table class="table tabla-redondeada" [ngClass]="{'tabla-seleccionada': listaEconomicaSeleccionada, 'tabla-desactivada': menosRecorridoSeleccionado}">
-                        <tbody>
-                          <tr class="fila list text-center align-middle"  *ngFor="let oferta of listaOfertaEconomicos">
-                            <th scope="row" >
-                              <img src="{{oferta.imagen}}" class="card-img-top mx-auto" />
-                            </th>
-                            <td class="align-middle">
-                              {{oferta.nombreProducto}}
-                            </td>
-                            
-                            <td class="align-middle">
-                              {{oferta.nombreComercio}}
-                            </td>
-                            <td class="align-middle price">
-                              ${{oferta.precio}}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    
-                    <div class="col-xl-6">
-                      <div class="div-icono">
-                        <button class="icon-circle mr-3" id="botonMenosRecorrido" (click)="seleccionarMenosRecorrido()" mdbTooltip="Menos recorrido" placement="top" tooltipAnimation="true">
-                          <img src="assets/icons/ruta.svg" alt="Icono recorrido" width="30" height="30">
-                        </button>
+                        <div class="col-xl-4">
+                          <div class="div-icono">
+                            <button
+                              class="icon-circle mr-3"
+                              id="botonMenosRecorrido"
+                              (click)="seleccionarMenosRecorrido()"
+                              mdbTooltip="Menos recorrido"
+                              placement="top"
+                              tooltipAnimation="true"
+                            >
+                              <img
+                                src="assets/icons/ruta.svg"
+                                alt="Icono recorrido"
+                                width="30"
+                                height="30"
+                              />
+                            </button>
+                          </div>
+                          <div>
+                            <h2 class="subtitulo">Menos recorrido</h2>
+                          </div>
+                          <div>
+                            <p>
+                              Distancia a recorrer:
+                              {{ distanciaMenosRecorrido }}
+                            </p>
+                            <p>
+                              Comercios a visitar:
+                              {{ cantidadComerciosMenosRecorrido }}
+                            </p>
+                          </div>
+                          <table
+                            class="table tabla-redondeada"
+                            [ngClass]="{
+                              'tabla-seleccionada': menosRecorridoSeleccionado,
+                              'tabla-desactivada': listaEconomicaSeleccionada
+                            }"
+                          >
+                            <tbody>
+                              <tr
+                                class="fila list text-center align-middle"
+                                *ngFor="let oferta of listaOfertaMenorRecorrido"
+                              >
+                                <th scope="row">
+                                  <img
+                                    src="{{ oferta.imagen }}"
+                                    class="card-img-top mx-auto"
+                                  />
+                                </th>
+                                <td class="align-middle">
+                                  {{ oferta.nombreProducto }}
+                                </td>
+                                <td class="align-middle price">
+                                  ${{ oferta.precio }}
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
 
+                        <div class="col-xl-4">
+                          <!-- mapa -->
+                          <div  style="padding-top: 40px;">
+                            <app-mejor-ruta
+                              *ngIf="estaLogueado"
+                            ></app-mejor-ruta>
+
+                            <div class="contenedor-imagen" *ngIf="!estaLogueado">
+                              <div class="capa-superior">
+                                <span class="texto-superior"
+                                  >Inicie sesión para ver el recorrido</span
+                                >
+                              </div>
+                              <img
+                                src="https://www.solidbackgrounds.com/images/2560x1440/2560x1440-davys-grey-solid-color-background.jpg"
+                                class="imagen-mapa"
+                              />
+                              <div class="capa-inferior">
+                                <button
+                                  type="button "
+                                  data-bs-target="#exampleModalLogin"
+                                  data-bs-toggle="modal"
+                                  class="btn btn-primary buttonnregistro text-light boton-loguearse"
+                                >
+                                  <a class="botonregistro"> Iniciar sesión</a>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div>
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-lg icono-generar"
+                              (click)="obtenerResumen()"
+                              *ngIf="estaLogueado"
+                            >
+                              Resumen de lista
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                      <div>
-                        <h2 class="subtitulo">
-                          Menos recorrido
-                        </h2>
-                      </div>
-                      <div>
-                        <p>Distancia a recorrer: {{ distanciaMenosRecorrido }}</p>
-                        <p>Comercios a visitar: {{ cantidadComerciosMenosRecorrido }}</p>
-                      </div>
-                      <table class="table tabla-redondeada" [ngClass]="{'tabla-seleccionada': listaEconomicaSeleccionada, 'tabla-desactivada': menosRecorridoSeleccionado}">
-                        <tbody>
-                          <tr class="fila list text-center align-middle"  *ngFor="let oferta of listaOfertaMenorRecorrido">
-                            <th scope="row" >
-                              <img src="{{oferta.imagen}}" class="card-img-top mx-auto" />
-                            </th>
-                            <td class="align-middle">
-                              {{oferta.nombreProducto}}
-                            </td>
-                            <td class="align-middle price">
-                              ${{oferta.precio}}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
                     </div>
-                    
-                  </div>
-                  </div>
-                  
-                  <!-- mapa -->
-                  <div class="col-md-4">
-                    <div>
-                      <app-mejor-ruta></app-mejor-ruta>
-                    </div>
-                    
-<div>
-  
-<button type="button" class="btn btn-primary btn-lg icono-generar" (click)="obtenerResumen()">Resumen de lista</button>
-</div>
                   </div>
                 </div>
               </div>
@@ -197,57 +188,158 @@
         </div>
       </div>
     </div>
-
-
-  </div>
   </div>
 
-<!-- resumen -->
-<div class="container-fluid">
-  <div class="row">
-<div class="col-xl-12 col-md-12" *ngIf="resumen">
-      <div class="row d-flex justify-content-center align-items-center">
-        <div class="card card-optimizar">
-          <div class="card-body p-5">
-            <h2>Resumen de tu lista para: {{nombreEvento}}</h2>
-            <div>
-              <button type="button" class="btn btn-primary btn-lg icono-generar" (click)="shareMap()">
-                <img src="assets/icons/whatsapp.svg" alt="Icono económico" width="40" height="40" class="icono-boton-compartir">
-                Compartir recorrido
-              </button>
-            </div>
-            <div>
-              <p>Distancia a recorrer: {{distanciaEconomico}}</p>
-              <p>Comercios a visitar: {{cantidadComerciosEconomico}}</p>
-            </div>
-            <div>
-              <p>Presenta este QR para acceder a los descuentos</p>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Commons_QR_code.png">
-            </div>
+  <!-- resumen -->
+  <div class="container-fluid" *ngIf="resumen">
+    <div class="justify-content-center align-items-center">
+      <div class="card card-optimizar">
+        <div class="card-body p-5">
+          <div class="row">
+            <div class="col-md-12"></div>
+            <div class="row">
+              <h2>Resumen de tu lista para el evento: {{ nombreEvento }}</h2>
+              <div class="linea-titulo-resumen"></div>
+              <div class="col-xl-4 col-md-12">
+                <img src="assets/images/asistente.png" alt="" height="600px" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" />
+              </div>
+              <div class="col-xl-4 col-md-12">
+                <div>
+                  <h2>Qué comprar y en donde:</h2>
+                  <br />
+                  <br />
+                </div>
                 <div class="wrapper">
                   <ol class="c-timeline">
-                    <ng-container *ngFor="let offerGroup of groupOffersByCommerceName(listaOfertaEconomicos)">
+                    <ng-container
+                      *ngFor="
+                        let offerGroup of groupOffersByCommerceName(
+                          listaOfertaEconomicos
+                        )
+                      "
+                    >
                       <li class="c-timeline__item">
                         <div class="c-timeline__content">
                           <div class="c-timeline__details">
-                            <h2 class="titulo-linea-tiempo">{{offerGroup[0].nombreComercio}}</h2>
-                            <p class="c-timeline__desc">{{offerGroup[0].localidad}}</p>
+                            <h2 class="titulo-linea-tiempo">
+                              {{ offerGroup[0].nombreComercio }}
+                            </h2>
+                            <p class="c-timeline__desc">
+                              {{ offerGroup[0].localidad }}
+                            </p>
                           </div>
                           <div class="c-timeline__images col-md-8">
-                            <ng-container *ngFor="let ofertaSeleccionada of offerGroup">
-                              <img src="{{ofertaSeleccionada.imagen}}" class="mx-auto img-stepper" />
+                            <ng-container
+                              *ngFor="let ofertaSeleccionada of offerGroup"
+                            >
+                              <img
+                                src="{{ ofertaSeleccionada.imagen }}"
+                                class="mx-auto img-stepper"
+                              />
                             </ng-container>
                           </div>
                         </div>
                       </li>
                     </ng-container>
                   </ol>
-                
+                </div>
+              </div>
+              <div class="col-xl-4 col-md-12">
+                <h2>Información:</h2>
+                <div>
+                  <br />
+                  <p>
+                    Presenta este código QR en los comercios adheridos para
+                    acceder a los descuentos de tus productos
+                  </p>
+                  <img src="assets/images/qr-code.png" width="400px" />
+                </div>
+
+                <div>
+                  <br />
+                  <h2>Datos del trayecto:</h2>
+                  <br />
+                  <p>Distancia a recorrer: {{ distanciaEconomico }}</p>
+                  <p>Comercios a visitar: {{ cantidadComerciosEconomico }}</p>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-lg icono-generar"
+                      (click)="shareMap()"
+                    >
+                      <img
+                        src="assets/icons/whatsapp.svg"
+                        alt="Icono económico"
+                        width="40"
+                        height="40"
+                        class="icono-boton-compartir"
+                      />
+                      Compartir recorrido
+                    </button>
+                  </div>
+                  <div class="col-md-6">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-lg icono-generar"
+                      (click)="shareMap()"
+                    >
+                      <img
+                        src="assets/icons/gps.svg"
+                        alt="Icono económico"
+                        width="40"
+                        height="40"
+                        class="icono-boton-compartir"
+                      />
+                      Iniciar recorrido
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    </div>
+  </div>
 </div>
+
+<!-- Modal-->
+
+<div class="modal fade" id="exampleModalLogin" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <section class="vh-100 w-75 p-4">
+        <div class="mask d-flex align-items-center">
+          <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+              <div class="card">
+                <div class="card-body p-5">
+                  <h4 class="text-center mb-5">Iniciar Sesión</h4>
+                  <form>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example1cg">Usuario</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Example4cg">Contraseña</label>
+                    </div>
+                  </form>
+                  <div>
+                    <button type="button" class="btn btn-primary buttonnregistro text-light" data-bs-dismiss="modal" 
+                    (click)="inciarSesion()">
+                      <a class="botonregistro">Iniciar sesión</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
