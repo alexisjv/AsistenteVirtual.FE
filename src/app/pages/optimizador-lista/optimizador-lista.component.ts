@@ -22,10 +22,13 @@ export class OptimizadorListaComponent implements OnInit{
   menosRecorridoSeleccionado = false;
   listaOfertaMenorRecorrido: Oferta[];
   listaOfertaEconomicos: Oferta[];
+  listaOfertaElegida: Oferta[];
   idEvento: number;
   localidad: string;
   distanciaEconomico: string;
   distanciaMenosRecorrido: string;
+  distanciaElegida: string;
+  comerciosElegido: number;
   mejorRutaComponent: MejorRutaComponent = new MejorRutaComponent();
   cantidadComerciosEconomico: number;
   cantidadComerciosMenosRecorrido: number;
@@ -133,15 +136,19 @@ export class OptimizadorListaComponent implements OnInit{
         waypoints.push({
           location: `${oferta.latitud}, ${oferta.longitud}`
         });
+
         comerciosVisitados.add(oferta.nombreComercio);
       }
     }
   
     this.cantidadComerciosEconomico = waypoints.length - 1;
+    this.listaOfertaElegida = this.listaOfertaEconomicos;
   
     this.mejorRutaComponent.calculateAndDisplayRoute(waypoints, (distance) => {
       console.log('Distancia recibida:', distance);
       this.distanciaEconomico = distance;
+      this.distanciaElegida = this.distanciaEconomico;
+      this.comerciosElegido = waypoints.length - 1;
     });
   }
   
@@ -150,16 +157,31 @@ export class OptimizadorListaComponent implements OnInit{
     this.listaEconomicaSeleccionada = false;
     this.menosRecorridoSeleccionado = true;
     this.listaSeleccionada = this.menosRecorridoSeleccionado;
-    const waypoints = this.listaOfertaMenorRecorrido.map(oferta => ({
-      location: `${oferta.latitud}, ${oferta.longitud}`
-    }));
+    const comerciosVisitados = new Set<string>();
+    const waypoints = [];
+  
     const miUbicacionActual = [-34.67058109744653, -58.56281593172098];
     waypoints.push({ location: `${miUbicacionActual[0]}, ${miUbicacionActual[1]}` });
-    this.cantidadComerciosEconomico = waypoints.length - 1;
+  
+    for (const oferta of this.listaOfertaMenorRecorrido) {
+      if (!comerciosVisitados.has(oferta.nombreComercio)) {
+        waypoints.push({
+          location: `${oferta.latitud}, ${oferta.longitud}`
+        });
 
+        comerciosVisitados.add(oferta.nombreComercio);
+      }
+    }
+  
+    this.cantidadComerciosMenosRecorrido = waypoints.length - 1;
+    this.listaOfertaElegida = this.listaOfertaMenorRecorrido;
+
+  
     this.mejorRutaComponent.calculateAndDisplayRoute(waypoints, (distance) => {
       console.log('Distancia recibida:', distance);
       this.distanciaMenosRecorrido = distance;
+      this.distanciaElegida = this.distanciaMenosRecorrido;
+      this.comerciosElegido = waypoints.length - 1;
     });
   }
   
@@ -190,6 +212,10 @@ export class OptimizadorListaComponent implements OnInit{
 
   inciarSesion(){
     this.estaLogueado = true;
+  }
+
+  elegirOtroEscenario(){
+    this.escenarios = true;
   }
   
 }

@@ -11,7 +11,7 @@
                 <div class="card-body card-producto">
                   <div class="row">
                     <div class="col-md-12">
-                      <h2>Optimizar lista</h2>
+                      <h2>Listas Recomendadas</h2>
                       <div class="linea-titulo"></div>
                       <div class="row">
                         <div class="col-xl-4">
@@ -129,6 +129,10 @@
                                 <td class="align-middle">
                                   {{ oferta.nombreProducto }}
                                 </td>
+                                
+                                <td class="align-middle">
+                                  {{ oferta.nombreComercio }}
+                                </td>
                                 <td class="align-middle price">
                                   ${{ oferta.precio }}
                                 </td>
@@ -141,10 +145,10 @@
                           <!-- mapa -->
                           <div  style="padding-top: 40px;">
                             <app-mejor-ruta
-                              *ngIf="estaLogueado"
+                              *ngIf="!estaLogueado"
                             ></app-mejor-ruta>
 
-                            <div class="contenedor-imagen" *ngIf="!estaLogueado">
+                           <!--  <div class="contenedor-imagen" *ngIf="estaLogueado">
                               <div class="capa-superior">
                                 <span class="texto-superior"
                                   >Inicie sesión para ver el recorrido</span
@@ -164,7 +168,7 @@
                                   <a class="botonregistro"> Iniciar sesión</a>
                                 </button>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
 
                           <div>
@@ -172,7 +176,7 @@
                               type="button"
                               class="btn btn-primary btn-lg icono-generar"
                               (click)="obtenerResumen()"
-                              *ngIf="estaLogueado"
+                              *ngIf="!estaLogueado"
                             >
                               Resumen de lista
                             </button>
@@ -201,7 +205,7 @@
               <h2>Resumen de tu lista para el evento: {{ nombreEvento }}</h2>
               <div class="linea-titulo-resumen"></div>
               <div class="col-xl-4 col-md-12">
-                <img src="assets/images/asistente.png" alt="" height="600px" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);" />
+                <img src="assets/images/asistente-transparente.png" alt="" height="600px" />
               </div>
               <div class="col-xl-4 col-md-12">
                 <div>
@@ -214,7 +218,7 @@
                     <ng-container
                       *ngFor="
                         let offerGroup of groupOffersByCommerceName(
-                          listaOfertaEconomicos
+                          listaOfertaElegida
                         )
                       "
                     >
@@ -245,7 +249,7 @@
                 </div>
               </div>
               <div class="col-xl-4 col-md-12">
-                <h2>Información:</h2>
+              <!--   <h2>Información:</h2>
                 <div>
                   <br />
                   <p>
@@ -254,13 +258,12 @@
                   </p>
                   <img src="assets/images/qr-code.png" width="400px" />
                 </div>
-
+ -->
                 <div>
-                  <br />
                   <h2>Datos del trayecto:</h2>
                   <br />
-                  <p>Distancia a recorrer: {{ distanciaEconomico }}</p>
-                  <p>Comercios a visitar: {{ cantidadComerciosEconomico }}</p>
+                  <p>Distancia a recorrer: {{ distanciaElegida }}</p>
+                  <p>Comercios a visitar: {{ comerciosElegido }}</p>
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -280,7 +283,7 @@
                     </button>
                   </div>
                   <div class="col-md-6">
-                    <button
+                  <!--   <button
                       type="button"
                       class="btn btn-primary btn-lg icono-generar"
                       (click)="shareMap()"
@@ -293,7 +296,16 @@
                         class="icono-boton-compartir"
                       />
                       Iniciar recorrido
-                    </button>
+                    </button> -->
+                    
+                    <button
+                    type="button"
+                    class="btn btn-primary btn-lg icono-generar"
+                    (click)="elegirOtroEscenario()"
+                    *ngIf="!estaLogueado"
+                  >
+                    Regresar
+                  </button>
                   </div>
                 </div>
               </div>
