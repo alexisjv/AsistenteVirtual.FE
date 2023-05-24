@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Scene" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.79 154.38">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="64.29" cy="76.79" r="41.48"/>
+  <circle class="cls-1" cx="63.1" cy="62.27" r="16.15"/>
+  <ellipse class="cls-1" cx="64.29" cy="98.34" rx="25.19" ry="19.93"/>
+</svg>

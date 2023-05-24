@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Scene" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.79 154.38">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 6px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-width: 14px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="61.4" cy="77.19" r="41.48"/>
+  <path class="cls-2" d="m43.29,78.54l5.71,15.34c.61,1.64,2.78,1.96,3.84.57l44.89-58.75"/>
+</svg>
